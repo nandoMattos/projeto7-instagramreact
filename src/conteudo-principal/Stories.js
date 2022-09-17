@@ -1,132 +1,41 @@
-function geraStory(nome, urlImagem) {
+function Story(props) {
     return (
         <div class="story">
             <div class="imagem">
-                <img src={urlImagem} />
+                <img src={props.imagem} />
             </div>
             <div class="usuario">
-                {nome}
+                {props.nomeUsuario}
             </div>
         </div>
     )
 }
 
-function geraArrayStories() {
-    const infoStories = [
-        {
-            nome: "oi",
-            urlImagem: "aa"
-        },
-
-        {
-            nome: "ola",
-            urlImagem: "bb"
-        }
-    ]
-}
 
 export default function Stories() {
 
-    const arrayStories = [
-        {
+    const storiesProps = [
+        {nomeUsuario: "9gag", imagem: "assets/img/9gag.svg"},
+        {nomeUsuario: "meowed", imagem: "assets/img/meowed.svg"},
+        {nomeUsuario: "barked", imagem: "assets/img/barked.svg"},
+        {nomeUsuario: "nathanwpylestrangeplanet", imagem: "assets/img/nathanwpylestrangeplanet.svg"},
+        {nomeUsuario: "wawawicomics", imagem: "assets/img/wawawicomics.svg"},
+        {nomeUsuario: "respondeai", imagem: "assets/img/respondeai.svg"},
+        {nomeUsuario: "filomoderna", imagem: "assets/img/filomoderna.svg"},
+        {nomeUsuario: "memeriagourmet", imagem: "assets/img/memeriagourmet.svg"}
 
-        }
-    ];
-    arrayStories = pushStories();
-
+    ]
+    
     return(
         <div class="stories">
-            {arrayStories.map(story => story)}
+            {storiesProps.map((prop) => 
+                <Story nomeUsuario = {prop.nomeUsuario} imagem={prop.imagem}/>
+            )}
 
             <div class="setinha">
                 <ion-icon name="chevron-forward-circle"></ion-icon>
             </div>
         </div>
     )
-
-    // const arrayStories = [
-    //     <div class="story">
-    //         <div class="imagem">
-    //             <img src="assets/img/9gag.svg" />
-    //         </div>
-    //         <div class="usuario">
-    //             9gag
-    //         </div>
-    //     </div>,
-
-    //     <div class="story">
-    //        <div class="imagem">
-    //            <img src="assets/img/meowed.svg" />
-    //        </div>
-    //        <div class="usuario">
-    //            meowed
-    //        </div>
-    //    </div>,
-
-    //     <div class="story">
-    //         <div class="imagem">
-    //             <img src="assets/img/barked.svg" />
-    //         </div>
-    //         <div class="usuario">
-    //             barked
-    //         </div>
-    //     </div>,
-
-    //     <div class="story">
-    //         <div class="imagem">
-    //             <img src="assets/img/nathanwpylestrangeplanet.svg" />
-    //         </div>
-    //         <div class="usuario">
-    //             nathanwpylestrangeplanet
-    //         </div>
-    //     </div>,
-
-    //     <div class="story">
-    //         <div class="imagem">
-    //             <img src="assets/img/wawawicomics.svg" />
-    //         </div>
-    //         <div class="usuario">
-    //             wawawicomics
-    //         </div>
-    //     </div>,
-
-    //     <div class="story">
-    //         <div class="imagem">
-    //             <img src="assets/img/respondeai.svg" />
-    //         </div>
-    //         <div class="usuario">
-    //             respondeai
-    //         </div>
-    //     </div>,
-
-    //     <div class="story">
-    //         <div class="imagem">
-    //             <img src="assets/img/filomoderna.svg" />
-    //         </div>
-    //         <div class="usuario">
-    //             filomoderna
-    //         </div>
-    //     </div>,
-
-    //     <div class="story">
-    //         <div class="imagem">
-    //             <img src="assets/img/memeriagourmet.svg" />
-    //         </div>
-    //         <div class="usuario">
-    //             memeriagourmet
-    //         </div>
-    //     </div>,
-
-    //     <div class="story">
-    //         <div class="imagem">
-    //             <img src="assets/img/memeriagourmet.svg" />
-    //         </div>
-    //         <div class="usuario">
-    //             memeriagourmet
-    //         </div>
-    //     </div>
-
-    // ]
-    
 
 } 

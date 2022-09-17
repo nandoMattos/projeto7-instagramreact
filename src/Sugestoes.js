@@ -1,64 +1,21 @@
-export default function Sugestoes() {
-    const arraySugestoes = [
+import Usuario from "./Usuario"
+
+function Sugestao(props) {
+    return (
         <div class="sugestao">
-            <div class="usuario">
-                <img src="assets/img/bad.vibes.memes.svg" />
-                <div class="texto">
-                    <div class="nome">bad.vibes.memes</div>
-                    <div class="razao">Segue você</div>
-                </div>
-            </div>
-
-            <div class="seguir">Seguir</div>
-        </div>,
-
-        <div class="sugestao">
-            <div class="usuario">
-                <img src="assets/img/chibirdart.svg" />
-                <div class="texto">
-                    <div class="nome">chibirdart</div>
-                    <div class="razao">Segue você</div>
-                </div>
-            </div>
-
-            <div class="seguir">Seguir</div>
-        </div>,
-
-        <div class="sugestao">
-            <div class="usuario">
-                <img src="assets/img/razoesparaacreditar.svg" />
-                <div class="texto">
-                    <div class="nome">razoesparaacreditar</div>
-                    <div class="razao">Novo no Instagram</div>
-                </div>
-            </div>
-
-            <div class="seguir">Seguir</div>
-        </div>,
-
-        <div class="sugestao">
-            <div class="usuario">
-                <img src="assets/img/adorable_animals.svg" />
-                <div class="texto">
-                    <div class="nome">adorable_animals</div>
-                    <div class="razao">Segue você</div>
-                </div>
-            </div>
-
-            <div class="seguir">Seguir</div>
-        </div>,
-
-        <div class="sugestao">
-            <div class="usuario">
-                <img src="assets/img/smallcutecats.svg" />
-                <div class="texto">
-                    <div class="nome">smallcutecats</div>
-                    <div class="razao">Segue você</div>
-                </div>
-            </div>
-
+            <Usuario imagemPerfil={props.imagemPerfil} nomeUsuario={props.nomeUsuario} razao={props.razao}/>
             <div class="seguir">Seguir</div>
         </div>
+    )
+}
+
+export default function Sugestoes() {
+    const sugestoesProps = [
+        {imagemPerfil:"assets/img/bad.vibes.memes.svg", nomeUsuario:"bad.vibes.memes", razao:"Segue você"},
+        {imagemPerfil:"assets/img/chibirdart.svg", nomeUsuario:"chibirdart", razao:"Segue você"},
+        {imagemPerfil:"assets/img/razoesparaacreditar.svg", nomeUsuario:"razoesparaacreditar", razao:"Novo no Instagram"},
+        {imagemPerfil:"assets/img/adorable_animals.svg", nomeUsuario:"adorable_animals", razao:"Segue você"},
+        {imagemPerfil:"assets/img/smallcutecats.svg", nomeUsuario:"smallcutecats", razao:"Segue você"}
     ]
 
     return (
@@ -68,7 +25,9 @@ export default function Sugestoes() {
                 <div>Ver tudo</div>
             </div>
 
-        {arraySugestoes.map((sugestao)=> sugestao)}
+        {sugestoesProps.map((prop)=> 
+            <Sugestao imagemPerfil={prop.imagemPerfil} nomeUsuario={prop.nomeUsuario} razao={prop.razao}/>
+        )}
         </div>
     )
 }

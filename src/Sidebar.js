@@ -7,7 +7,10 @@ export default function Sidebar() {
                 <img src="assets/img/catanacomics.svg" />
                 <div class="texto">
                     <strong>catanacomics</strong>
-                    Catana
+                    <span>
+                        Catana
+                        <ion-icon name="pencil" ></ion-icon>
+                    </span>
                 </div>
             </div>
 
