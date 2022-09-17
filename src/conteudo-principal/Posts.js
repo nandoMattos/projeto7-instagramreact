@@ -1,4 +1,45 @@
+import React from "react";
+
 function Post(props) {
+    const [likedClass, setLikedClass] = React.useState("")
+    const [likedOutline, setLikedOutline] = React.useState("heart-outline")
+    const [bookmarkOutline, setBookmarkOutline] = React.useState("bookmark-outline")
+    const [qtdeCurtidas, setQtdeCurtidas] = React.useState(props.qtdeCurtidas)
+
+    function incrementaOuDecrementaCurtida(sinal) {
+        let numero;
+        if(sinal === "+"){
+            numero = Number(qtdeCurtidas.replace(".", "")) + 1;
+        } 
+        if (sinal === "-"){
+            numero = Number(qtdeCurtidas.replace(".", "")) - 1;
+
+        }
+
+        setQtdeCurtidas(new Intl.NumberFormat('de-DE').format(numero))
+    }
+
+    function toggleLike() {
+        if(likedClass === "") {
+            setLikedClass("liked")
+            setLikedOutline("heart")
+            incrementaOuDecrementaCurtida('+')
+
+        } else {
+            setLikedClass("")
+            setLikedOutline("heart-outline")
+            incrementaOuDecrementaCurtida('-')
+        }
+    }
+
+    function toggleBookmarkOutline() {
+        if (bookmarkOutline === "bookmark-outline"){
+            setBookmarkOutline("bookmark")
+        } else {
+            setBookmarkOutline("bookmark-outline")
+        }
+    }
+
     return (
         <div class="post">
             <div class="topo">
@@ -18,19 +59,19 @@ function Post(props) {
             <div class="fundo">
                 <div class="acoes">
                     <div>
-                        <ion-icon name="heart-outline"></ion-icon>
+                        <ion-icon class={likedClass} name={likedOutline} onClick={toggleLike}></ion-icon>
                         <ion-icon name="chatbubble-outline"></ion-icon>
                         <ion-icon name="paper-plane-outline"></ion-icon>
                     </div>
                     <div>
-                        <ion-icon name="bookmark-outline"></ion-icon>
+                        <ion-icon name={bookmarkOutline} onClick={toggleBookmarkOutline} ></ion-icon>
                     </div>
                 </div>
 
                 <div class="curtidas">
                     <img src="assets/img/respondeai.svg" />
-                    <div class="texto">
-                        Curtido por <strong>{props.curtidoPor}</strong> e <strong>outras {props.qtdeCurtidas} pessoas</strong>
+                    <div class="texto"> 
+                        Curtido por <strong>{props.curtidoPor}</strong> e <strong>outras {qtdeCurtidas} pessoas</strong>
                     </div>
                 </div>
             </div>
@@ -44,13 +85,13 @@ export default function Posts() {
         imagemPerfil: "assets/img/meowed.svg", 
         imagemPost: "assets/img/gato-telefone.svg", 
         curtidoPor: "respondeai", 
-        qtdeCurtidas: 101.523},
+        qtdeCurtidas: "101.523"},
         
         {nomeUsuario: "barked", 
         imagemPerfil: "assets/img/barked.svg", 
         imagemPost: "assets/img/dog.svg", 
         curtidoPor: "adorable_animals", 
-        qtdeCurtidas: 99.159}
+        qtdeCurtidas: "99.159"}
     ];
 
     return(

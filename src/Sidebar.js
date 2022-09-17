@@ -1,15 +1,33 @@
+import React from "react";
 import Sugestoes from "./Sugestoes";
 
 export default function Sidebar() {
+    let [nome, setNome] = React.useState("Catana")
+    let [imagemPerfil, setImagemPerfil] = React.useState("assets/img/catanacomics.svg")
+
+    function alterarNome() {
+        const novoNome = prompt("Insira o novo nome de usuário");
+        if(novoNome) {
+            setNome(novoNome)
+        }
+    }
+
+    function alterarImagemPerfil() {
+        const novaImagem = prompt("Insira o URL da nova imagem")
+        if(novaImagem) {
+            setImagemPerfil(novaImagem)
+        }
+    }
+
     return (
         <div class="sidebar">
             <div class="usuario">
-                <img src="assets/img/catanacomics.svg" />
+                <img src={imagemPerfil} onClick={alterarImagemPerfil} />
                 <div class="texto">
                     <strong>catanacomics</strong>
                     <span>
-                        Catana
-                        <ion-icon name="pencil" ></ion-icon>
+                        {nome}
+                        <ion-icon name="pencil" onClick={alterarNome} ></ion-icon>
                     </span>
                 </div>
             </div>

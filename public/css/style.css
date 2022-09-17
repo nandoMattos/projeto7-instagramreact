@@ -399,3 +399,8 @@ ion-icon {
 .usuario ion-icon {
   margin-left: 5px;
 }
+
+.liked {
+  color:red;
+  /* transition: all 0.5s ease; */
+}
